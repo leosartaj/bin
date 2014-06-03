@@ -1,0 +1,10 @@
+# Alias
+
+# Because typing cd is too musch work
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Quick acces rc files
+alias vimrc='vim ~/.vimrc'
+alias zshrc='vim ~/.zshrc'
