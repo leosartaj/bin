@@ -18,8 +18,8 @@ set showcmd
 set shell=/bin/zsh
 
 " Setting Color Scheme
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
 
 " Understanding filetypes
 filetype on
