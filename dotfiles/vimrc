@@ -1,88 +1,142 @@
+" MY VIMRC
 
-" Pathogen plugin
+" Calling Pathogen plugin
 execute pathogen#infect()
+    
+" Use only Vim mode
+set nocompatible
 
-" Don't Behave like vi
-set nocompatible                                      
+set fileencoding=utf-8
+set encoding=utf-8
 
-syntax on
-filetype plugin indent on
+set backspace=indent,eol,start
 
-" Searching options
-set incsearch                            
-set showmatch                              
-set smartcase                               
-set ignorecase                               
-set hlsearch  
+" Shows multi key commands
+set showcmd
 
-" set background=dark
+" shell setting
+set shell=/bin/zsh
 
-" allow to bg unsaved buffers, etc
-set hidden      
+" Setting Color Scheme
+set background=dark
+colorscheme solarized
 
-" always show status line
-set laststatus=2
+" Understanding filetypes
+filetype on
+filetype indent on
+filetype plugin on
 
-" show normal etc command
-set showcmd              
+syntax enable
 
+" gives the line number
+set number
+set numberwidth=2
 
-" proper backspacing
-set backspace=indent,eol,start      
+" Smart indentation
+set smartindent
 
-" show cursor position
-set ruler                                          
+" Rounds indent according to the shiftwidth
+set shiftround
 
-" 0 prefixed numbers are still decimal
-set nrformats-=octal               
-
-" wraps between word
+" Wrap condition
 set linebreak
 
-set scrolloff=1 
+" Search specifications 
+set hlsearch
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
 
-" Indentation Options
-set autoindent
-set smartindent
+" Window settings
+set winwidth=84
+set winheight=5
+set winminheight=5
+set winminwidth=20
+set winheight=999
+
+" Visual warning
+set visualbell
+
+" Disabling swap file
+set noswapfile
+
+" Tab settings
 set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-"round > and < to multiples of shiftwidth
-set shiftround
+set scrolloff=5
 
-" Fixes slow 0 inserts (all three)
-set timeout                      
-set timeoutlen=1000
-set ttimeoutlen=100
+" Shows option when using tab completion for cmd line commands
+set wildmenu
 
-" line Number
-set number
+" Personalised status line
+set statusline=%F\ line:%l/%L\ col:%c\ %y\ %r
 
-" no annoying swap file
-set noswapfile
+" Makes Line numbers visible
+highlight LineNr ctermfg=blue ctermbg=black
 
-let mapleader=","
+" Status line always visible
+set laststatus=2
 
-" mappings
+" MY MAPPINGS
+let mapleader=','
+
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>nh :noh<CR>
+
+" Mappings for indenting file having code in different languages
+nnoremap <leader>hp :set filetype=html<CR> :w<CR> :set filetype=php<CR> :w<CR> 
+
+" Easily add HTML comments
+nnoremap <leader>ch I<!-- <ESC>A --><ESC>^4l
+
+"Easier navigation among windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <C-c> :w<CR><C-z>
-nnoremap <C-x> :w<CR>
 
-" quit highlighting mode
-nnoremap <leader><space> :noh<cr>
+" Quick save
+nmap <C-x> :w<CR>
+imap <C-x> <ESC>:w<CR>a
+nmap <C-c> :wq<CR>
 
-" Esy indentation
-nnoremap <tab> >>
-nnoremap <s-tab> <<
+" MY AUTO COMMANDS
 
-" abbreviations 
-cnoreabbrev W w
+" Properly indents files when first opened and after saved
+autocmd BufRead,BufWritePre *.js normal gg=G
+autocmd BufRead,BufWritePre *.php normal gg=G
+autocmd BufRead,BufWritePre *.css normal gg=G
+autocmd BufRead,BufWritePre *.c normal gg=G
+autocmd BufRead,BufWritePre *.html normal gg=G
+
+" Automatically sources the vimrc file on saving
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+" MY ABBREVIATIONS
+
+" Command line corrections
 cnoreabbrev Wq wq
+cnoreabbrev qw wq
 cnoreabbrev WQ wq
-cnoreabbrev wQ wq
-cnoreabbrev Q! q!
+cnoreabbrev W w
+cnoreabbrev Q q
+
+" MY FUNCTIONS
+
+" Not very friendly with the snipmate plugin
+" Smartly uses tab for putting tab spaces or autocompletion
+"function! SmartTab()
+"    let col = col(".") - 1
+"    if !col || getline(".")[col - 1] !~ '\k'
+"        return "\<Tab>"
+"    else
+"        return "\<C-n>"
+"endfunction
+
+"inoremap <Tab> <C-r>=SmartTab()<CR>
+"inoremap <s-Tab> <C-p>

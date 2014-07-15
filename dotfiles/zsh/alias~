@@ -29,28 +29,6 @@ euler() {
 	gcc -std=c99 -g $1.c -lm -o $1 && ./$1
 }
 
-# function makes new dir and cd's into the directory
-take () {
-    mkdir $1
-    cd $1
-}	
-
-# Easy access to dotfiles from any directory
-dot () {
-    if [ -d ~/bin/dotfiles/$1 ]
-    then
-        cd ~/bin/dotfiles/$1
-    elif [ -f ~/bin/dotfiles/zsh/$1 ]
-    then
-        vim ~/bin/dotfiles/zsh/$1
-    elif [ -f ~/bin/dotfiles/$1 ]
-    then
-        vim ~/bin/dotfiles/$1
-    else
-        cd ~/bin/dotfiles/
-    fi
-}
-
 # Java compilation and execution for alg4 course
 jj () {
     checkstyle-algs4 "$1" && javac-algs4 "$1" && findbugs-algs4 "$(basename $1 .java).class" && echo '-----------' && java-algs4 "$(basename $1 .java)"
