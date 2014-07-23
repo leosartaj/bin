@@ -77,7 +77,7 @@ set wildmenu
 set statusline=%F\ line:%l/%L\ col:%c\ %y\ %r
 
 " Makes Line numbers visible
-highlight LineNr ctermfg=blue ctermbg=black
+"highlight LineNr ctermfg=blue ctermbg=black
 
 " Status line always visible
 set laststatus=2

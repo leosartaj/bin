@@ -13,15 +13,21 @@ alias zshrc='vim ~/.zshrc'
 alias v='vim'
 alias vi='vim'
 
+# Change to your last known directory
+alias ocd='cd $OLDPWD $*'
+
 # Easy shutdown
 alias shut='shutdown -hP now' 
 
-# Easy mounting sda5
+# Easy mounting sda5 
 alias tvmnt='sudo mount /dev/sda5 /mnt' 
+
+# Easy reaching tv series
+alias cdtv='cd /mnt/Tv\ Series'
 
 # Easy watching Tv Series
 tv() {
-    vlc "$1" & > /dev/null
+    vlc "$1"  2>/dev/null 1>&2 &
 }
 
 # For project Euler
@@ -56,3 +62,11 @@ jj () {
     checkstyle-algs4 "$1" && javac-algs4 "$1" && findbugs-algs4 "$(basename $1 .java).class" && echo '-----------' && java-algs4 "$(basename $1 .java)"
     rm -f "$(basename $1 .java).class"
 }
+
+# Converts to pdf files 
+pdf () {
+    enscript -p "$1.ps" "$1"
+    ps2pdf "$1.ps" "$1.pdf"
+    rm "$1.ps"
+}
+

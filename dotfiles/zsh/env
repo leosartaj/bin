@@ -1,7 +1,7 @@
 # Environment
 
-#export http_proxy='http://506.13135079:iitcc2013@10.1.1.19:80'
-#export https_proxy='https://506.13135079:iitcc2013@10.1.1.19:80'
-#export ftp_proxy='ftp://506.13135079:iitcc2013@10.1.1.19:80'
-#export socks_proxy='socks://127.0.0.1:9050'
+export http_proxy='http://506.13135079:iitcc2013@10.1.1.19:80'
+export https_proxy='https://506.13135079:iitcc2013@10.1.1.19:80'
+export ftp_proxy='ftp://506.13135079:iitcc2013@10.1.1.19:80'
+export socks_proxy='socks://127.0.0.1:9050'
 
