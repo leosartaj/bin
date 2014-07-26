@@ -23,4 +23,4 @@ alias shut='shutdown -hP now'
 alias tvmnt='sudo mount /dev/sda5 /mnt' 
 
 # Easy reaching tv series
-alias cdtv='cd /mnt/Tv\ Series'
+alias cdtv='cd /mnt/TvSeries'

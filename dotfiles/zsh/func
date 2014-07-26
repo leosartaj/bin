@@ -12,16 +12,13 @@ euler() {
 
 # Download all links in a file
 down() {
-    for lines in $(cat $1); do
-        for link in $"$lines" ; do
-            echo "Downloading $link"
-            curl -O -C - "$link"
+    for link in $(cat $*); do
+        echo "Downloading $link"
+        curl -O -C - "$link"
+        while [ $? -eq 18 ]; do
             echo ''
-            while [ $? -eq 18 ]; do
-                echo 'Trying again'
-                curl -O -C - "$link"
-                echo ''
-            done
+            echo 'Trying again'
+            curl -O -C - "$link"
         done
     done
 }
@@ -61,3 +58,12 @@ pdf () {
     rm "$1.ps"
 }
 
+# Nautilus access 
+n () {
+    if [ -z "$*" ]
+    then
+        nautilus .
+    else
+        nautilus "$*"
+    fi
+}
