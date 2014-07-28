@@ -1,0 +1,8 @@
+ControlPort 9051
+DirReqStatistics 0
+HTTPSProxy 10.1.1.19:80
+HTTPSProxyAuthenticator 506.13135079:iitcc2013
+Socks5ProxyUsername 506.13135079
+Socks5ProxyPassword iitcc2013
+Log notice syslog
+DataDirectory /var/lib/tor

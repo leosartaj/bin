@@ -67,3 +67,8 @@ n () {
         nautilus "$*"
     fi
 }
+
+# Git squash
+gsq () {
+    git reset --soft "HEAD~$1" && git commit
+}
