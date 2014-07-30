@@ -2,12 +2,12 @@
 
 # Easy watching Tv Series
 tv() {
-    vlc "$1"  2>/dev/null 1>&2 &
+    vlc "$1" 2>/dev/null 1>&2 &
 }
 
 # For project Euler
 euler() {
-	gcc -std=c99 -g $1.c -lm -o $1 && ./$1
+	gcc -std=c99 -g "$1.c" -lm -o "$1" && ./$1
 }
 
 # Download all links in a file
