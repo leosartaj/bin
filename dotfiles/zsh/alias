@@ -20,7 +20,7 @@ alias ocd='cd $OLDPWD $*'
 alias shut='shutdown -hP now' 
 
 # Easy mounting sda5 
-alias tvmnt='sudo mount /dev/sda5 /mnt' 
+alias tvmnt='sudo ntfs-3g /dev/sda5 /mnt' 
 
 # Easy reaching tv series
 alias cdtv='cd /mnt/TvSeries'
