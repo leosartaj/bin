@@ -113,6 +113,7 @@ autocmd BufRead,BufWritePre *.php normal gg=G
 autocmd BufRead,BufWritePre *.css normal gg=G
 autocmd BufRead,BufWritePre *.c normal gg=G
 autocmd BufRead,BufWritePre *.html normal gg=G
+autocmd BufRead,BufWritePre *.hs normal gg=G
 
 " Automatically sources the vimrc file on saving
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
