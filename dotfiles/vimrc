@@ -64,9 +64,9 @@ set noswapfile
 
 " Tab settings
 set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 
 set scrolloff=5
 
@@ -113,7 +113,6 @@ autocmd BufRead,BufWritePre *.php normal gg=G
 autocmd BufRead,BufWritePre *.css normal gg=G
 autocmd BufRead,BufWritePre *.c normal gg=G
 autocmd BufRead,BufWritePre *.html normal gg=G
-autocmd BufRead,BufWritePre *.hs normal gg=G
 
 " Automatically sources the vimrc file on saving
 autocmd BufWritePost $MYVIMRC source $MYVIMRC

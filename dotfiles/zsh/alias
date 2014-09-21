@@ -17,10 +17,23 @@ alias vi='vim'
 alias ocd='cd $OLDPWD $*'
 
 # Easy shutdown
-alias shut='shutdown -hP now' 
+alias shut='sudo shutdown -hP now' 
 
 # Easy mounting sda5 
 alias tvmnt='sudo ntfs-3g /dev/sda5 /mnt' 
 
 # Easy reaching tv series
 alias cdtv='cd /mnt/TvSeries'
+
+# edit torrc
+alias torrc='sudo vim /etc/tor/torrc'
+
+# credit tool
+alias c='credit'
+alias cn='credit new'
+alias cu='credit update'
+alias ct='credit total'
+alias cdis='credit display'
+alias cprint='credit print'
+alias cnet='credit net'
+
