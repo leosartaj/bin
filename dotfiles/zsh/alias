@@ -33,7 +33,7 @@ alias c='credit'
 alias cn='credit new'
 alias cu='credit update'
 alias ct='credit total'
+alias cts='credit totals'
 alias cdis='credit display'
 alias cprint='credit print'
 alias cnet='credit net'
-

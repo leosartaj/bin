@@ -1,9 +1,3 @@
-[http]
-	proxy = http://506.13135079:iitcc2013@10.1.1.18:80
-[https]
-	proxy = https://506.13135079:iitcc2013@10.1.1.18:80
-[ftp]
-	proxy = ftp://506.13135079:iitcc2013@10.1.1.18:80
 [user]
 	name = Sartaj Singh
 	email = singhsartaj94@gmail.com

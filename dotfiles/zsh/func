@@ -17,21 +17,31 @@ ctv() {
         echo "$1 not found"
     fi
 }
+
 # For project Euler
 euler() {
 	gcc -std=c99 -g "$1.c" -lm -o "$1" && ./$1
 }
 
 # Download all links in a file
-down() {
+down () {
     for link in $(cat $*); do
         echo "Downloading $link"
-        curl -O -C - "$link"
+        NAME="$(basename $link)"
+        if [ -f "$NAME" ]; then
+            SIZE="$(ls -Al $NAME | awk '{ print $5 }')"
+
+            if [ "$SIZE" -lt "100000" ]; then
+                rm -f "$NAME"
+            fi
+        fi
+        curl -C - -L -O "$link"
         while [ $? -eq 18 ]; do
             echo ''
             echo 'Trying again'
-            curl -O -C - "$link"
+            curl -C - -L -O "$link"
         done
+        echo ''
     done
 }
 
