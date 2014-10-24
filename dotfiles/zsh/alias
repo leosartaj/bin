@@ -37,3 +37,6 @@ alias cts='credit totals'
 alias cdis='credit display'
 alias cprint='credit print'
 alias cnet='credit net'
+
+# PySub 
+alias pd='pysub download'
