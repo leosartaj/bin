@@ -39,4 +39,4 @@ alias cprint='credit print'
 alias cnet='credit net'
 
 # PySub 
-alias pd='pysub download'
+alias pd='pysub -rv'

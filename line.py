@@ -16,10 +16,10 @@ def parse_args():
     parser.add_option('--verbose', '-v', action='store_true', help=help, dest='verbose')
 
     help = "For recursive line counting"
-    parser.add_option('--r', '-r',  action='store_true', help=help, dest='recursive')
+    parser.add_option('--recursive', '-r',  action='store_true', help=help, dest='recursive')
 
     help = "Count files starting with dot"
-    parser.add_option('--d', '-d',  action='store_true', help=help, dest='dotfiles')
+    parser.add_option('--dotfiles', '-d',  action='store_true', help=help, dest='dotfiles')
 
     options, args = parser.parse_args()
 
@@ -109,6 +109,14 @@ def count(name, options):
     return lines # total lines
 
 if __name__ == '__main__':
-    options, count_this = parse_args()
-    for this in count_this:
-        print count(this, options)
+    lines, line = 0, 0
+    try:
+        options, count_this = parse_args()
+        for this in count_this:
+            line = count(this, options)
+            print this, line
+            lines += line
+        if len(count_this) > 1:
+            print 'total', lines
+    except KeyboardInterrupt:
+        sys.exit()
