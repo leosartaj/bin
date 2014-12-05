@@ -1,8 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/leosartaj/projects/TicTacToe/src'
-let g:netrw_dirhist_2='/home/leosartaj/projects/forq/conf'
-let g:netrw_dirhist_3='/home/leosartaj/projects/twisted-intro/blocking-server'
-let g:netrw_dirhist_4='/home/leosartaj/projects/PyGp'
-let g:netrw_dirhist_5='/home/leosartaj/projects/twisted-intro/async-client'
-let g:netrw_dirhist_6='/home/leosartaj/projects/PyGp'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/leosartaj/projects/PyChat/PyChat/client'
+let g:netrw_dirhist_2='/home/leosartaj/projects/PyChat/PyChat/client/gui'
+let g:netrw_dirhist_3='/home/leosartaj/projects/sub/sub'

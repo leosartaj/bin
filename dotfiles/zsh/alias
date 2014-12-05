@@ -39,4 +39,7 @@ alias cprint='credit print'
 alias cnet='credit net'
 
 # PySub 
-alias pd='pysub -rv'
+alias pd='sub -rv'
+
+# trackers
+alias t='xclip ~/.trackers'
