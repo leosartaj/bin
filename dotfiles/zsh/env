@@ -11,3 +11,5 @@
 
 # Pretty ls
 eval `dircolors ~/bin/dotfiles/dircolors`
+
+export PYTHONSTARTUP=~/.pythonstartup
