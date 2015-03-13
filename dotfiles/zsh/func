@@ -1,9 +1,19 @@
 # Functions
 
+# Free from terminal, the way I like it
+bg () {
+  if [ -z "$2" ]
+  then
+    "$1" 2>/dev/null 1>&2 &
+  else
+    "$1" "$2" 2>/dev/null 1>&2 &
+  fi
+}
+
 # Easy watching Tv Series
 tv() {
     if [ -f "$1" ]; then
-        vlc "$1" 2>/dev/null 1>&2 &
+        bg vlc "$1"
     else
         echo "$1 not found"
     fi
@@ -12,9 +22,27 @@ tv() {
 # Listening music
 ctv() {
     if [ -f "$1" ]; then
-        cvlc "$1" 2>/dev/null 1>&2 &
+        bg cvlc "$1"
     else
         echo "$1 not found"
+    fi
+}
+
+book() {
+    if [ -f "$1" ]; then
+        bg evince "$1"
+    else
+        echo "$1 not found"
+    fi
+}
+
+# Nautilus access 
+n () {
+    if [ -z "$1" ]
+    then
+        bg nautilus .
+    else
+        bg nautilus "$1"
     fi
 }
 
@@ -80,14 +108,19 @@ pdf () {
     rm "$1.ps"
 }
 
-# Nautilus access 
-n () {
-    if [ -z "$*" ]
-    then
-        nautilus .
-    else
-        nautilus "$*"
-    fi
+clp () {
+  latex -shell-escape "$1"
+  pdflatex -shell-escape "$1"
+}
+
+# Ping the ip
+tp () {
+  if [[ -z "$1" ]];
+  then
+    echo "Ping 10.1.1.[0-255]"
+  else
+    sudo ping -qfc50 "10.1.1.$1"
+  fi
 }
 
 # Git squash
@@ -95,26 +128,41 @@ gsq () {
     git reset --soft "HEAD~$1" && git commit
 }
 
+spoj () {
+  vim ~/spoj/"$1"
+}
+
+pack () {
+  mkdir "$1"
+  touch "$1/__init__.py"
+}
+
+# make a python package directory
+pydir () {
+  pack "$1"
+  pack "$1/tests"
+}
+
 # Generates basic python package structure
 # the way i like it
-pack () {
+pypack () {
   # $1, name of the package
   mkdir "$1"
   cd "$1"
 
   git init
-  mkdir "$1"
+  pydir "$1"
   mkdir bin
 
   touch setup.py
-
   touch README.rst
   touch CHANGELOG.rst
   touch TODO.rst
   touch CONTRIBUTING.rst
-
+  touch signature.txt
   touch LICENSE
-
   touch .gitignore
   touch .travis.yml
+
+  ocd
 }

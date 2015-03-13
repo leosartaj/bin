@@ -1,8 +1,25 @@
 " MY VIMRC
 
 " Calling Pathogen plugin
-execute pathogen#infect()
-    
+"execute pathogen#infect()
+
+" set runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin()
+
+" let Vundle manage Vundle
+" required
+Bundle 'gmarik/Vundle.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-fugitive'
+Bundle 'klen/python-mode'
+Bundle 'junegunn/goyo.vim'
+"Bundle 'davidhalter/jedi-vim'
+"Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" End of plugins
+call vundle#end()
+
 " Use only Vim mode
 set nocompatible
 
@@ -22,7 +39,7 @@ set shell=/bin/zsh
 "colorscheme solarized
 
 " Understanding filetypes
-filetype on
+filetype off " vundle required
 filetype indent on
 filetype plugin on
 
@@ -82,17 +99,60 @@ set statusline=%F\ line:%l/%L\ col:%c\ %y\ %r
 " Status line always visible
 set laststatus=2
 
+" Python Mode
+" Deactivate Rope
+" Keys
+" K: PyDoc
+" <leader>b breakpoint
+" [[ previous class, method and the like
+" ]] next class, method and the like
+" [M previous class, method and the like
+" ]M next class, method and the like
+
+" Do not Use rope for autocompletion
+let g:pymode_rope = 0
+
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+
+" Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = 'pyflakes,pep8'
+
+" Autocheck on save
+let g:pymode_lint_write = 1
+
+" Support virtualenv
+let g:pymode_virtualenv = 1
+
+" Enable code execution
+let g:pymode_run = 1
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>b'
+
+" Syntax Highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" Don't autofold code
+let g:pymode_folding = 0
+
 " MY MAPPINGS
 let mapleader=','
 
 nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <leader>nh :noh<CR>
+nnoremap <leader>n :noh<CR>
 
 " Mappings for indenting file having code in different languages
 nnoremap <leader>hp :set filetype=html<CR> :w<CR> :set filetype=php<CR> :w<CR> 
 
 " Easily add HTML comments
-nnoremap <leader>ch I<!-- <ESC>A --><ESC>^4l
+nnoremap <leader>ch I<!-- <ESC>A --><ESC>
 
 "Easier navigation among windows
 nnoremap <C-h> <C-w>h
@@ -100,22 +160,17 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Quick save
-nmap <C-x> :w<CR>
-imap <C-x> <ESC>:w<CR>a
-nmap <C-c> :wq<CR>
+" Spell checking
+nnoremap <leader>s :setlocal spell spelllang=en_us<CR>
+nnoremap <leader>ns :set nospell<CR>
+
+"pdflatex
+nnoremap <leader>l :!pdflatex -shell-escape % <CR><CR>
 
 " MY AUTO COMMANDS
 
-" Properly indents files when first opened and after saved
-autocmd BufRead,BufWritePre *.js normal gg=G
-autocmd BufRead,BufWritePre *.php normal gg=G
-autocmd BufRead,BufWritePre *.css normal gg=G
-autocmd BufRead,BufWritePre *.c normal gg=G
-autocmd BufRead,BufWritePre *.html normal gg=G
-
 " Automatically sources the vimrc file on saving
-autocmd BufWritePost $MYVIMRC source $MYVIMRC
+"autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " MY ABBREVIATIONS
 
@@ -125,6 +180,13 @@ cnoreabbrev qw wq
 cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
+
+augroup vimrc_autocmds
+  autocmd!
+  " higlight characters past column 80
+  autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
+  autocmd FileType python match Excess /\%80v.*/
+augroup END
 
 " MY FUNCTIONS
 

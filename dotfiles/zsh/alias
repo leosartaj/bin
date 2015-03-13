@@ -14,7 +14,7 @@ alias v='vim'
 alias vi='vim'
 
 # Change to your last known directory
-alias ocd='cd $OLDPWD $*'
+alias ocd='cd -'
 
 # Easy shutdown
 alias shut='sudo shutdown -hP now' 
@@ -43,3 +43,6 @@ alias pd='sub -rv'
 
 # trackers
 alias t='xclip ~/.trackers'
+
+# Format
+alias format='sudo mkntfs -Q -L'

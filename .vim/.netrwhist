@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/leosartaj/projects/PyChat/PyChat/client'
-let g:netrw_dirhist_2='/home/leosartaj/projects/PyChat/PyChat/client/gui'
-let g:netrw_dirhist_3='/home/leosartaj/projects/sub/sub'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/leosartaj/projects/aura/aura/tests/test_server'
+let g:netrw_dirhist_2='/home/leosartaj/projects/aura/aura'
+let g:netrw_dirhist_3='/home/leosartaj/projects/forq'
+let g:netrw_dirhist_4='/home/leosartaj/projects/sympy/sympy/functions/special'
+let g:netrw_dirhist_5='/home/leosartaj/projects/sympy/sympy/matrices/expressions'
