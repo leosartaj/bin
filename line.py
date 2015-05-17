@@ -5,7 +5,7 @@ import os, optparse, sys
 def parse_args():
     usage = """usage: %prog [options] [path]
 
-    Run 
+    Run
     lc -h/--help
     For help
 """

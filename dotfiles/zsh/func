@@ -166,3 +166,18 @@ pypack () {
 
   ocd
 }
+
+# Format
+format() {
+  sudo mkntfs -Q -F -L "" "$1"
+}
+
+# octopress new post
+np() {
+  if [[ -z "$2" ]];
+  then
+    octopress new post "$1"
+  else
+    octopress new post "$1" --template _templates/"$2"
+  fi
+}

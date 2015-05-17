@@ -44,5 +44,5 @@ alias pd='sub -rv'
 # trackers
 alias t='xclip ~/.trackers'
 
-# Format
-alias format='sudo mkntfs -Q -L'
+# Delete the last screenshot
+alias rmsc='rm -iv "$(ls ~/Pictures/Screenshot* | tail -n 1)"'
