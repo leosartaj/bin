@@ -1,3 +1,3 @@
 Bin
 ****
-Contents of my bin. Contains my configurations.
+All of my dotfiles and configurations.
