@@ -1,13 +1,14 @@
 # Functions
 
+up-mirrorlist() {
+  sudo curl -o /etc/pacman.d/mirrorlist.backup https://www.archlinux.org/mirrorlist/all/
+  cp /etc/pacman.d/mirrorlist.backup /etc/pacman.d/mirrorlist
+  reflector --verbose -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist
+}
+
 # Free from terminal, the way I like it
 bg () {
-  if [ -z "$2" ]
-  then
-    "$1" 2>/dev/null 1>&2 &
-  else
-    "$1" "$2" 2>/dev/null 1>&2 &
-  fi
+  "$@" 2>/dev/null 1>&2 &
 }
 
 # Easy watching Tv Series
@@ -180,4 +181,17 @@ np() {
   else
     octopress new post "$1" --template _templates/"$2"
   fi
+}
+
+check_pr () {
+  git fetch main pull/$1/head:pr-$1 && git checkout pr-$1;
+}
+
+rmv () {
+  mv $1/* .
+  rm $1 -rv
+}
+
+setvpn () {
+  sudo openvpn --script-security 2 --http-proxy 10.1.1.18 80 ~/vpnbook/.proxypass --config ~/vpnbook/vpnbook-euro2-tcp443.ovpn;
 }

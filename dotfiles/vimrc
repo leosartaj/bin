@@ -12,6 +12,7 @@ call vundle#begin()
 Bundle 'gmarik/Vundle.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-fugitive'
 Bundle 'klen/python-mode'
@@ -27,6 +28,9 @@ Bundle 'sjl/badwolf'
 "Bundle 'junegunn/limelight.vim'
 "Bundle 'davidhalter/jedi-vim'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'nvie/vim-flake8'
+" automatically close parenthesis
+Bundle 'cohama/lexima.vim'
 
 " End of plugins
 call vundle#end()
@@ -78,7 +82,7 @@ set incsearch
 set showmatch
 
 " Window settings
-set winwidth=84
+set winwidth=87
 set winheight=5
 set winminheight=5
 set winminwidth=20
@@ -177,6 +181,8 @@ nnoremap <leader>ns :set nospell<CR>
 
 "pdflatex
 nnoremap <leader>l :!pdflatex -shell-escape % <CR><CR>
+
+nnoremap <leader>f :call Flake8()<CR>
 
 " MY AUTO COMMANDS
 

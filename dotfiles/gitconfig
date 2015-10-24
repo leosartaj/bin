@@ -1,3 +1,9 @@
 [user]
 	name = Sartaj Singh
 	email = singhsartaj94@gmail.com
+[push]
+	default = simple
+[credential "https://github.com"]
+	username = leosartaj
+[url "https://"]
+	insteadOf = git://
