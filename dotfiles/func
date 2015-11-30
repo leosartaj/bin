@@ -195,3 +195,7 @@ rmv () {
 setvpn () {
   sudo openvpn --script-security 2 --http-proxy 10.1.1.18 80 ~/vpnbook/.proxypass --config ~/vpnbook/vpnbook-euro2-tcp443.ovpn;
 }
+
+cdtv () {
+  cd "/mnt/TvSeries/$1"
+}
