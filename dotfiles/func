@@ -193,7 +193,9 @@ rmv () {
 }
 
 setvpn () {
-  sudo openvpn --script-security 2 --http-proxy 10.1.1.18 80 ~/vpnbook/.proxypass --config ~/vpnbook/vpnbook-euro2-tcp443.ovpn;
+  #sudo openvpn --script-security 2 --http-proxy 10.1.1.18 80 ~/vpnbook/.proxypass --config ~/vpnbook/vpnbook-euro2-tcp443.ovpn;
+  #sudo openvpn --http-proxy 13.163.4.9 8001 --config ~/vpnbook/sartaj.ovpn;
+  sudo openvpn --http-proxy 10.1.1.18 80 ~/vpnbook/.proxypass --config ~/vpnbook/sartaj.ovpn;
 }
 
 cdtv () {

@@ -4,12 +4,12 @@
 "execute pathogen#infect()
 
 " set runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
 " required
-Bundle 'gmarik/Vundle.vim'
+Bundle 'VundleVim/Vundle.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
@@ -31,6 +31,23 @@ Bundle 'sjl/badwolf'
 Bundle 'nvie/vim-flake8'
 " automatically close parenthesis
 Bundle 'cohama/lexima.vim'
+" Notes
+Bundle 'vimwiki/vimwiki'
+" Fancy startup screen
+Bundle 'mhinz/vim-startify'
+" Indentation
+Bundle "Yggdroot/indentLine"
+" Completion
+Bundle "Valloric/YouCompleteMe"
+" Snippets
+Bundle "SirVer/ultisnips"
+Bundle "honza/vim-snippets"
+
+" utilsnips configuration
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsEditSplit="vertical"
 
 " End of plugins
 call vundle#end()
