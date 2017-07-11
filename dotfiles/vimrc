@@ -38,7 +38,7 @@ Bundle 'mhinz/vim-startify'
 " Indentation
 Bundle "Yggdroot/indentLine"
 " Completion
-Bundle "Valloric/YouCompleteMe"
+"Bundle "Valloric/YouCompleteMe" " Some issue with mac related to version
 " Snippets
 Bundle "SirVer/ultisnips"
 Bundle "honza/vim-snippets"

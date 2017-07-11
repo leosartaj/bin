@@ -1,57 +1,5 @@
 # Functions
 
-up-mirrorlist() {
-  sudo curl -o /etc/pacman.d/mirrorlist.backup https://www.archlinux.org/mirrorlist/all/
-  cp /etc/pacman.d/mirrorlist.backup /etc/pacman.d/mirrorlist
-  reflector --verbose -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist
-}
-
-# Free from terminal, the way I like it
-bg () {
-  "$@" 2>/dev/null 1>&2 &
-}
-
-# Easy watching Tv Series
-tv() {
-    if [ -f "$1" ]; then
-        bg vlc "$1"
-    else
-        echo "$1 not found"
-    fi
-}
-
-# Listening music
-ctv() {
-    if [ -f "$1" ]; then
-        bg cvlc "$1"
-    else
-        echo "$1 not found"
-    fi
-}
-
-book() {
-    if [ -f "$1" ]; then
-        bg evince "$1"
-    else
-        echo "$1 not found"
-    fi
-}
-
-# Nautilus access 
-n () {
-    if [ -z "$1" ]
-    then
-        bg nautilus .
-    else
-        bg nautilus "$1"
-    fi
-}
-
-# For project Euler
-euler() {
-	gcc -std=c99 -g "$1.c" -lm -o "$1" && ./$1
-}
-
 # Download all links in a file
 down () {
     for link in $(cat $*); do
@@ -80,108 +28,6 @@ take () {
     cd $1
 }	
 
-# Easy access to dotfiles from any directory
-dot () {
-    if [ -d ~/bin/dotfiles/$1 ]
-    then
-        cd ~/bin/dotfiles/$1
-    elif [ -f ~/bin/dotfiles/zsh/$1 ]
-    then
-        vim ~/bin/dotfiles/zsh/$1
-    elif [ -f ~/bin/dotfiles/$1 ]
-    then
-        vim ~/bin/dotfiles/$1
-    else
-        cd ~/bin/dotfiles/
-    fi
-}
-
-# Java compilation and execution for alg4 course
-jj () {
-    checkstyle-algs4 "$1" && javac-algs4 "$1" && findbugs-algs4 "$(basename $1 .java).class" && echo '-----------' && java-algs4 "$(basename $1 .java)"
-    rm -f "$(basename $1 .java).class"
-}
-
-# Converts to pdf files 
-pdf () {
-    enscript -p "$1.ps" "$1"
-    ps2pdf "$1.ps" "$1.pdf"
-    rm "$1.ps"
-}
-
-clp () {
-  latex -shell-escape "$1"
-  pdflatex -shell-escape "$1"
-}
-
-# Ping the ip
-tp () {
-  if [[ -z "$1" ]];
-  then
-    echo "Ping 10.1.1.[0-255]"
-  else
-    sudo ping -qfc50 "10.1.1.$1"
-  fi
-}
-
-# Git squash
-gsq () {
-    git reset --soft "HEAD~$1" && git commit
-}
-
-spoj () {
-  vim ~/spoj/"$1"
-}
-
-pack () {
-  mkdir "$1"
-  touch "$1/__init__.py"
-}
-
-# make a python package directory
-pydir () {
-  pack "$1"
-  pack "$1/tests"
-}
-
-# Generates basic python package structure
-# the way i like it
-pypack () {
-  # $1, name of the package
-  mkdir "$1"
-  cd "$1"
-
-  git init
-  pydir "$1"
-  mkdir bin
-
-  touch setup.py
-  touch README.rst
-  touch CHANGELOG.rst
-  touch TODO.rst
-  touch CONTRIBUTING.rst
-  touch signature.txt
-  touch LICENSE
-  touch .gitignore
-  touch .travis.yml
-
-  ocd
-}
-
-# Format
-format() {
-  sudo mkntfs -Q -F -L "" "$1"
-}
-
-# octopress new post
-np() {
-  if [[ -z "$2" ]];
-  then
-    octopress new post "$1"
-  else
-    octopress new post "$1" --template _templates/"$2"
-  fi
-}
 
 check_pr () {
   git fetch main pull/$1/head:pr-$1 && git checkout pr-$1;
@@ -192,16 +38,6 @@ rmv () {
   rm $1 -rv
 }
 
-setvpn () {
-  #sudo openvpn --script-security 2 --http-proxy 10.1.1.18 80 ~/vpnbook/.proxypass --config ~/vpnbook/vpnbook-euro2-tcp443.ovpn;
-  #sudo openvpn --http-proxy 13.163.4.9 8001 --config ~/vpnbook/sartaj.ovpn;
-  sudo openvpn --http-proxy 10.1.1.18 80 ~/vpnbook/.proxypass --config ~/vpnbook/sartaj.ovpn;
-}
-
-cdtv () {
-  cd "/mnt/TvSeries/$1"
-}
-
-volume () {
-  pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo "$1"%
-}
+#setvpn () {
+  #sudo openvpn --http-proxy 10.1.1.18 80 ~/vpnbook/.proxypass --config ~/vpnbook/sartaj.ovpn;
+#}

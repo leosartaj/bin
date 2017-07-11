@@ -15,31 +15,3 @@ alias vi='vim'
 
 # Change to your last known directory
 alias ocd='cd -'
-
-# Easy shutdown
-alias shut='sudo shutdown -hP now' 
-
-# Easy mounting sda5 
-alias tvmnt='sudo ntfs-3g /dev/sda5 /mnt' 
-
-# edit torrc
-alias torrc='sudo vim /etc/tor/torrc'
-
-# credit tool
-alias c='credit'
-alias cn='credit new'
-alias cu='credit update'
-alias ct='credit total'
-alias cts='credit totals'
-alias cdis='credit display'
-alias cprint='credit print'
-alias cnet='credit net'
-
-# PySub 
-alias pd='sub -rv'
-
-# trackers
-alias t='xclip ~/.trackers'
-
-# Delete the last screenshot
-alias rmsc='rm -iv "$(ls ~/Pictures/Screenshot* | tail -n 1)"'
