@@ -23,7 +23,7 @@ down () {
 }
 
 # function makes new dir and cd's into the directory
-take () {
+mkcd () {
     mkdir $1
     cd $1
 }	
@@ -37,7 +37,3 @@ rmv () {
   mv $1/* .
   rm $1 -rv
 }
-
-#setvpn () {
-  #sudo openvpn --http-proxy 10.1.1.18 80 ~/vpnbook/.proxypass --config ~/vpnbook/sartaj.ovpn;
-#}

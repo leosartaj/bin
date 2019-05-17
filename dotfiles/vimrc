@@ -40,7 +40,7 @@ Bundle "Yggdroot/indentLine"
 " Completion
 "Bundle "Valloric/YouCompleteMe" " Some issue with mac related to version
 " Snippets
-Bundle "SirVer/ultisnips"
+"Bundle "SirVer/ultisnips"
 Bundle "honza/vim-snippets"
 
 " utilsnips configuration

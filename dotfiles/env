@@ -1,7 +1,4 @@
 # Environment
 
-# Pretty ls
-#eval `dircolors ~/bin/dotfiles/dircolors`
-
 # Editor
 export EDITOR=vim

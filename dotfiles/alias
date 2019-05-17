@@ -15,3 +15,7 @@ alias vi='vim'
 
 # Change to your last known directory
 alias ocd='cd -'
+
+alias startfastai='gcloud compute instances start my-fastai-instance'
+alias sshfastai='gcloud compute ssh --zone=asia-southeast1-b jupyter@my-fastai-instance -- -L 8080:localhost:8080'
+alias stopfastai='gcloud compute instances stop my-fastai-instance'
