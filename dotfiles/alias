@@ -5,6 +5,13 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# Use lsd https://github.com/Peltoche/lsd instead of ls
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
 # Quick acces rc files
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
@@ -18,4 +25,5 @@ alias ocd='cd -'
 
 alias startfastai='gcloud compute instances start my-fastai-instance'
 alias sshfastai='gcloud compute ssh --zone=asia-southeast1-b jupyter@my-fastai-instance -- -L 8080:localhost:8080'
+alias studyfastai='startfastai; sshfastai'
 alias stopfastai='gcloud compute instances stop my-fastai-instance'
