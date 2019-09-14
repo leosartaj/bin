@@ -1,8 +1,5 @@
 " MY VIMRC
 
-" Calling Pathogen plugin
-"execute pathogen#infect()
-
 " set runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -10,7 +7,18 @@ call vundle#begin()
 " let Vundle manage Vundle
 " required
 Bundle 'VundleVim/Vundle.vim'
+
+
 Bundle 'scrooloose/nerdtree'
+" nerd tree setup
+" autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+" start nerdtree when just vim launched
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" start nerdtree when vim <dir> is executed
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'scrooloose/nerdcommenter'
