@@ -24,7 +24,7 @@ down () {
 
 # function makes new dir and cd's into the directory
 mkcd () {
-    mkdir $1
+    mkdir -p $1
     cd $1
 }	
 
@@ -33,7 +33,7 @@ check_pr () {
   git fetch main pull/$1/head:pr-$1 && git checkout pr-$1;
 }
 
-rmv () {
+mvr () {
   mv $1/* .
   rm $1 -rv
 }
